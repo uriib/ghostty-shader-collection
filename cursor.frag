@@ -73,9 +73,7 @@ void mainImage(out vec4 frag_color, vec2 frag_coord) {
   const vec4 color = texture2D(iChannel0, uv);
   frag_color = color;
 
-  // fix flash on startup
-  // TODO: find a better solution
-  if (iTime < 0.1) {
+  if (iPreviousCursor.z == 0 || iPreviousCursor.w == 0) {
     return;
   }
 
